@@ -17,7 +17,7 @@
 
 /** Typography */
 html {
-  /* 62.5% of 16px = 10px */
+  /** 62.5% of 16px = 10px */
   font-size: 62.5%;
 }
 
@@ -201,6 +201,7 @@ a {
   font-size: 1.8rem;
   font-weight: 600;
   margin: 1rem 0;
+  outline: 0;
   padding: 2rem 3rem;
   text-align: center;
   text-transform: uppercase;
@@ -326,11 +327,19 @@ a {
   color: #fff;
 }
 
+.card--primary .badge--primary {
+  background: #126de4;
+}
+
 .card--secondary .badge--secondary {
   background: #02cdf1;
 }
 
 /** Plans */
+.plan {
+  transition: transform 0.2s ease-out;
+}
+
 .plan__name {
   color: #fff;
   margin: 0;
@@ -360,6 +369,10 @@ a {
   margin-bottom: 2rem;
 }
 
+.plan--popular {
+  transform: scale(1.1);
+}
+
 .plan--popular .card__header {
   position: relative;
 }
@@ -371,6 +384,14 @@ a {
   position: absolute;
   top: -6px;
   right: 5%;
+}
+
+.plan:hover {
+  transform: scale(1.05);
+}
+
+.plan--popular:hover {
+  transform: scale(1.15);
 }
 
 @media screen and (min-width: 1024px) {
@@ -570,22 +591,15 @@ a {
 .collapsible__content {
   max-height: 0;
   overflow: hidden;
-}
-
-.collapsible__content {
-  max-height: 0;
-  overflow: hidden;
   opacity: 0;
   transition: all 0.3s;
 }
 
-.collapsible--expanded 
-.collapsible__chevron {
+.collapsible--expanded .collapsible__chevron {
   transform: rotate(0);
 }
 
-.collapsible--expanded 
-.collapsible__content {
+.collapsible--expanded .collapsible__content {
   max-height: 100vh;
   opacity: 1;
 }
@@ -659,12 +673,11 @@ a {
 
 .nav__toggler {
   opacity: 0.5;
-  transition: box-shadow .15s;
+  transition: box-shadow 0.15s;
   cursor: pointer;
 }
 
-.nav.collapsible--expanded 
-.nav__toggler {
+.nav.collapsible--expanded .nav__toggler {
   opacity: 1;
   box-shadow: 0 0 0 3px #666;
   border-radius: 5px;
@@ -712,7 +725,7 @@ a {
   .hero {
     padding-top: 0;
   }
-  
+
   .hero__content {
     text-align: left;
     align-self: center;
@@ -742,4 +755,14 @@ a {
   .block-domain__prices {
     grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   }
+}
+
+/** Plans Block */
+.block-plans .grid {
+  gap: 8rem 4rem;
+}
+
+.block-plans .card {
+  max-width: 500px;
+  margin: 0 auto;
 }
